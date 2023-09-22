@@ -5,8 +5,8 @@
     <classes>
       <class name="com.herokuapp.theinternet.NegativeTests">
         <methods>
-          <include name="beforetest"/>
           <include name="incorrectUsernameTest"/>
+          <include name="beforetest"/>
         </methods>
       </class> <!-- com.herokuapp.theinternet.NegativeTests -->
     </classes>
