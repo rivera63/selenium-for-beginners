@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -54,8 +55,8 @@ WebDriver driver;
 		
 		// Verifications
 		WebElement errorMessage = driver.findElement(By.id("flash"));
-		String expectedErrorMessage = " Your username is invalid! ";
-		String actualErrorMessage = errorMessage.getTagName();
+		String expectedErrorMessage = "Your username is invalid!";
+		String actualErrorMessage = errorMessage.getText();
 		
 		Assert.assertTrue(actualErrorMessage.contains(expectedErrorMessage),
 				"Actual error message does not contain expected. \nActual: " 
@@ -109,4 +110,9 @@ WebDriver driver;
 		 * 
 		 * }
 		 */
+	@AfterTest
+	public void afterTest() throws InterruptedException {
+		Thread.sleep(2000);
+		driver.quit();
+	}
 }
